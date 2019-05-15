@@ -2,6 +2,15 @@
 
 ## 11.1 아키텍처 이해
 
+## Component Architecture
+
+![](img/arch.png)
+ - 참조 : 
+   - [kubernetes : From beginner to Advanced - ep1](https://www.slideshare.net/InhoKang2/kubernetes-from-beginner-to-advanced)  by inho kang
+   - [kubernetes : From beginner to Advanced - ep2](https://www.slideshare.net/InhoKang2/k8s-beginner-2advancedep02201904221130post) by inho kang
+
+
+
 ### Control Plane Component
  - etcd 분산 스토리지
  - API 서버
@@ -19,13 +28,6 @@
   - 인그레스 컨트롤러
   - Heapster
   - Container Network Interface Plugin
-
-## Component Architecture
-
-![](img/arch.png)
- - 참조 : 
-   - [kubernetes : From beginner to Advanced - ep1](https://www.slideshare.net/InhoKang2/kubernetes-from-beginner-to-advanced)  by inho kang
-   - [kubernetes : From beginner to Advanced - ep2](https://www.slideshare.net/InhoKang2/k8s-beginner-2advancedep02201904221130post) by inho kang
 
 
 ### Checking the status of Control Plane components
@@ -466,7 +468,9 @@ Content-Type: application/json
 ## from place Deployment to create pod 
 - 표준 Nginx Deployment to create pod 
 
-some source code
+<details>
+<summary>from deployment to creat replicatset</summary>
+
 ```go
 // In pkg/deployment/depolyment_controller.go
 // NewDeploymentController creates a new DeploymentController.
@@ -531,10 +535,9 @@ func (dc *DeploymentController) getNewReplicaSet(d *apps.Deployment, rsList, old
 
 }
 ```
-
-
  - 결국 sync에 새로운 replicaset을 생성하는 소스가 있었다. 
 
+</details>
 
 
 
